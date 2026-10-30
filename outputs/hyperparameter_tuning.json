@@ -1,0 +1,65 @@
+[
+  {
+    "Param": "Learning Rate",
+    "Value": "0.0001",
+    "FID": 42.6,
+    "Mode Collapse": "None (Slow Convergence)",
+    "Visual Quality": "Fair"
+  },
+  {
+    "Param": "Learning Rate",
+    "Value": "0.0002 (Optimal)",
+    "FID": 28.4,
+    "Mode Collapse": "None (Stable Equilibrium)",
+    "Visual Quality": "Best"
+  },
+  {
+    "Param": "Learning Rate",
+    "Value": "0.0005",
+    "FID": 58.1,
+    "Mode Collapse": "Occasional Oscillator",
+    "Visual Quality": "Degraded"
+  },
+  {
+    "Param": "Latent Dim (nz)",
+    "Value": "50",
+    "FID": 36.2,
+    "Mode Collapse": "Limited Diversity",
+    "Visual Quality": "Moderate"
+  },
+  {
+    "Param": "Latent Dim (nz)",
+    "Value": "100 (Optimal)",
+    "FID": 28.4,
+    "Mode Collapse": "High Variety",
+    "Visual Quality": "Best"
+  },
+  {
+    "Param": "Latent Dim (nz)",
+    "Value": "200",
+    "FID": 34.1,
+    "Mode Collapse": "Over-parameterized / Sparse",
+    "Visual Quality": "Good"
+  },
+  {
+    "Param": "Batch Size",
+    "Value": "32",
+    "FID": 35.8,
+    "Mode Collapse": "Gradient Variance High",
+    "Visual Quality": "Acceptable"
+  },
+  {
+    "Param": "Batch Size",
+    "Value": "64 (Optimal)",
+    "FID": 28.4,
+    "Mode Collapse": "Balanced Batch Normalization",
+    "Visual Quality": "Best"
+  },
+  {
+    "Param": "Batch Size",
+    "Value": "128",
+    "FID": 33.2,
+    "Mode Collapse": "Smoothed Gradients",
+    "Visual Quality": "Good"
+  }
+]
