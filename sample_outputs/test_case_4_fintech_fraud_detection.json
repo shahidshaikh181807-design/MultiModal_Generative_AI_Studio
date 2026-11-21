@@ -1,0 +1,319 @@
+{
+  "test_case_metadata": {
+    "id": 4,
+    "name": "fintech_fraud_detection",
+    "domain": "FinTech & Fraud Detection",
+    "skill_level": "Intermediate",
+    "time_limit": "1-2 Weeks",
+    "extra_interests": "Scikit-Learn, Pandas, Plotly Dash",
+    "project_type": "AI/ML Model & API"
+  },
+  "generated_ideas_count": 5,
+  "projects": [
+    {
+      "id": 1,
+      "title": "Smart Fintech & Fraud Detection Assistant & Predictive Dashboard",
+      "tagline": "An end-to-end interactive decision support platform for Fintech & Fraud Detection with predictive analytics.",
+      "difficulty": "Intermediate",
+      "estimated_time": "1-2 Weeks",
+      "problem_statement": "In the Fintech & Fraud Detection domain, practitioners and users face high overhead and fragmentation. This project delivers an automated, user-friendly solution to streamline operations and provide actionable intelligence.",
+      "target_audience": "Fintech & Fraud Detection professionals, researchers, students, and organizations seeking efficiency.",
+      "key_modules": [
+        {
+          "module_name": "Data Ingestion & Cleaning Pipeline",
+          "description": "Collects, validates, and preprocesses domain datasets (CSV/JSON/APIs) with automated anomaly filtering."
+        },
+        {
+          "module_name": "Predictive Modeling / LLM Analysis Engine",
+          "description": "Processes domain trends, summarizes risks, and generates contextual recommendations."
+        },
+        {
+          "module_name": "Interactive Streamlit / React Dashboard",
+          "description": "Visualizes key performance indicators (KPIs), metric graphs, and exportable summary cards."
+        }
+      ],
+      "tools_and_technologies": {
+        "frontend": [
+          "Streamlit / Gradio",
+          "Tailwind CSS components"
+        ],
+        "backend": [
+          "FastAPI",
+          "Python 3.12+"
+        ],
+        "database": [
+          "PostgreSQL / SQLite",
+          "ChromaDB (Vector DB)"
+        ],
+        "ai_or_apis": [
+          "Gemini 2.5 Flash",
+          "LangChain / LlamaIndex",
+          "Groq LLaMA 3"
+        ],
+        "key_libraries": [
+          "Pandas",
+          "Pydantic",
+          "SQLAlchemy",
+          "Plotly"
+        ]
+      },
+      "scope": {
+        "in_scope": [
+          "Vector search pipeline",
+          "Full CRUD operations",
+          "Interactive visual analytics",
+          "Export to PDF/JSON"
+        ],
+        "out_of_scope": [
+          "Custom model pretraining from scratch",
+          "Hardware IoT edge flashing"
+        ]
+      },
+      "evaluation_winning_tip": "Demonstrate live data filtering and show the exact accuracy/evaluation metrics to impress examiners."
+    },
+    {
+      "id": 2,
+      "title": "Automated Fintech & Fraud Detection Report Generator & Summarizer",
+      "tagline": "Transform complex domain documents into executive summaries and structured infographics.",
+      "difficulty": "Intermediate",
+      "estimated_time": "1-2 Weeks",
+      "problem_statement": "In the Fintech & Fraud Detection domain, practitioners and users face high overhead and fragmentation. This project delivers an automated, user-friendly solution to streamline operations and provide actionable intelligence.",
+      "target_audience": "Fintech & Fraud Detection professionals, researchers, students, and organizations seeking efficiency.",
+      "key_modules": [
+        {
+          "module_name": "Document Parser & Vector Indexing",
+          "description": "Extracts text from multi-page PDFs/reports and indexes chunks into FAISS/ChromaDB."
+        },
+        {
+          "module_name": "Contextual Retrieval & Prompt Synthesizer",
+          "description": "Retrieves relevant sections and generates section-wise structured executive summaries."
+        },
+        {
+          "module_name": "One-Click Report Export Engine",
+          "description": "Exports formatted PDF/HTML briefs with cited sources and confidence scores."
+        }
+      ],
+      "tools_and_technologies": {
+        "frontend": [
+          "Streamlit / Gradio",
+          "Tailwind CSS components"
+        ],
+        "backend": [
+          "FastAPI",
+          "Python 3.12+"
+        ],
+        "database": [
+          "PostgreSQL / SQLite",
+          "ChromaDB (Vector DB)"
+        ],
+        "ai_or_apis": [
+          "Gemini 2.5 Flash",
+          "LangChain / LlamaIndex",
+          "Groq LLaMA 3"
+        ],
+        "key_libraries": [
+          "Pandas",
+          "Pydantic",
+          "SQLAlchemy",
+          "Plotly"
+        ]
+      },
+      "scope": {
+        "in_scope": [
+          "Vector search pipeline",
+          "Full CRUD operations",
+          "Interactive visual analytics",
+          "Export to PDF/JSON"
+        ],
+        "out_of_scope": [
+          "Custom model pretraining from scratch",
+          "Hardware IoT edge flashing"
+        ]
+      },
+      "evaluation_winning_tip": "Show a side-by-side comparison between the raw 30-page PDF and the generated 1-page structured brief."
+    },
+    {
+      "id": 3,
+      "title": "Real-Time Fintech & Fraud Detection Anomaly & Alert Monitoring System",
+      "tagline": "Continuous stream monitoring to flag abnormal incidents and trigger instant notifications.",
+      "difficulty": "Intermediate",
+      "estimated_time": "1-2 Weeks",
+      "problem_statement": "In the Fintech & Fraud Detection domain, practitioners and users face high overhead and fragmentation. This project delivers an automated, user-friendly solution to streamline operations and provide actionable intelligence.",
+      "target_audience": "Fintech & Fraud Detection professionals, researchers, students, and organizations seeking efficiency.",
+      "key_modules": [
+        {
+          "module_name": "Live Event Stream Simulator",
+          "description": "Simulates continuous streaming telemetry/event logs with injected outlier incidents."
+        },
+        {
+          "module_name": "Rule-Based & ML Anomaly Detector",
+          "description": "Evaluates incoming data points against dynamic thresholds and isolation forests."
+        },
+        {
+          "module_name": "Alert Dispatcher & Audit Log Viewer",
+          "description": "Triggers webhook/email alerts with severity classification and root-cause notes."
+        }
+      ],
+      "tools_and_technologies": {
+        "frontend": [
+          "Streamlit / Gradio",
+          "Tailwind CSS components"
+        ],
+        "backend": [
+          "FastAPI",
+          "Python 3.12+"
+        ],
+        "database": [
+          "PostgreSQL / SQLite",
+          "ChromaDB (Vector DB)"
+        ],
+        "ai_or_apis": [
+          "Gemini 2.5 Flash",
+          "LangChain / LlamaIndex",
+          "Groq LLaMA 3"
+        ],
+        "key_libraries": [
+          "Pandas",
+          "Pydantic",
+          "SQLAlchemy",
+          "Plotly"
+        ]
+      },
+      "scope": {
+        "in_scope": [
+          "Vector search pipeline",
+          "Full CRUD operations",
+          "Interactive visual analytics",
+          "Export to PDF/JSON"
+        ],
+        "out_of_scope": [
+          "Custom model pretraining from scratch",
+          "Hardware IoT edge flashing"
+        ]
+      },
+      "evaluation_winning_tip": "Trigger a live synthetic anomaly during the viva presentation to show the real-time card alert."
+    },
+    {
+      "id": 4,
+      "title": "Interactive Fintech & Fraud Detection Knowledge Bot with Citations",
+      "tagline": "Domain-specialized conversational agent providing verifiable answers with grounded sources.",
+      "difficulty": "Intermediate",
+      "estimated_time": "1-2 Weeks",
+      "problem_statement": "In the Fintech & Fraud Detection domain, practitioners and users face high overhead and fragmentation. This project delivers an automated, user-friendly solution to streamline operations and provide actionable intelligence.",
+      "target_audience": "Fintech & Fraud Detection professionals, researchers, students, and organizations seeking efficiency.",
+      "key_modules": [
+        {
+          "module_name": "Domain Knowledge Base Builder",
+          "description": "Curates guidelines, documentation, and research FAQs into an embedded knowledge graph."
+        },
+        {
+          "module_name": "Semantic Search & Grounded Generation",
+          "description": "Leverages hybrid keyword + vector retrieval to prevent hallucinations and cite sources."
+        },
+        {
+          "module_name": "Chat UI with Follow-up Suggestions",
+          "description": "Clean messaging interface with suggested prompt chips and feedback logging."
+        }
+      ],
+      "tools_and_technologies": {
+        "frontend": [
+          "Streamlit / Gradio",
+          "Tailwind CSS components"
+        ],
+        "backend": [
+          "FastAPI",
+          "Python 3.12+"
+        ],
+        "database": [
+          "PostgreSQL / SQLite",
+          "ChromaDB (Vector DB)"
+        ],
+        "ai_or_apis": [
+          "Gemini 2.5 Flash",
+          "LangChain / LlamaIndex",
+          "Groq LLaMA 3"
+        ],
+        "key_libraries": [
+          "Pandas",
+          "Pydantic",
+          "SQLAlchemy",
+          "Plotly"
+        ]
+      },
+      "scope": {
+        "in_scope": [
+          "Vector search pipeline",
+          "Full CRUD operations",
+          "Interactive visual analytics",
+          "Export to PDF/JSON"
+        ],
+        "out_of_scope": [
+          "Custom model pretraining from scratch",
+          "Hardware IoT edge flashing"
+        ]
+      },
+      "evaluation_winning_tip": "Highlight the hallucination-prevention mechanism and show source page references in the card."
+    },
+    {
+      "id": 5,
+      "title": "Fintech & Fraud Detection Workflow Automation & Task Scheduler",
+      "tagline": "End-to-end task orchestrator designed to eliminate repetitive operational bottlenecks in Fintech & Fraud Detection.",
+      "difficulty": "Intermediate",
+      "estimated_time": "1-2 Weeks",
+      "problem_statement": "In the Fintech & Fraud Detection domain, practitioners and users face high overhead and fragmentation. This project delivers an automated, user-friendly solution to streamline operations and provide actionable intelligence.",
+      "target_audience": "Fintech & Fraud Detection professionals, researchers, students, and organizations seeking efficiency.",
+      "key_modules": [
+        {
+          "module_name": "Trigger & Webhook Ingestion Engine",
+          "description": "Listens for domain events (new records, status updates, or time schedules)."
+        },
+        {
+          "module_name": "Action Execution Pipeline",
+          "description": "Applies business logic, executes data transformations, and calls external services."
+        },
+        {
+          "module_name": "Execution History & Performance Analytics",
+          "description": "Logs execution runtimes, error fallbacks, and task throughput metrics."
+        }
+      ],
+      "tools_and_technologies": {
+        "frontend": [
+          "Streamlit / Gradio",
+          "Tailwind CSS components"
+        ],
+        "backend": [
+          "FastAPI",
+          "Python 3.12+"
+        ],
+        "database": [
+          "PostgreSQL / SQLite",
+          "ChromaDB (Vector DB)"
+        ],
+        "ai_or_apis": [
+          "Gemini 2.5 Flash",
+          "LangChain / LlamaIndex",
+          "Groq LLaMA 3"
+        ],
+        "key_libraries": [
+          "Pandas",
+          "Pydantic",
+          "SQLAlchemy",
+          "Plotly"
+        ]
+      },
+      "scope": {
+        "in_scope": [
+          "Vector search pipeline",
+          "Full CRUD operations",
+          "Interactive visual analytics",
+          "Export to PDF/JSON"
+        ],
+        "out_of_scope": [
+          "Custom model pretraining from scratch",
+          "Hardware IoT edge flashing"
+        ]
+      },
+      "evaluation_winning_tip": "Quantify efficiency: state 'Reduces manual task handling time by 80%' on your presentation slide."
+    }
+  ]
+}
