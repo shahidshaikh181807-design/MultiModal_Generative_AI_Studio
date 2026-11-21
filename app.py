@@ -7,6 +7,7 @@ Mini Project for Generative AI (10-Mark Academic Evaluation)
 import streamlit as st
 import json
 import os
+import base64
 from dotenv import load_dotenv
 from generator import generate_project_ideas
 
@@ -21,83 +22,96 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for Modern Card UI & Theme-Adaptive Styling
-st.markdown("""
+def get_base64_image(image_path: str) -> str:
+    """Helper to convert local image to base64 string for CSS embedding."""
+    if os.path.exists(image_path):
+        with open(image_path, "rb") as f:
+            return base64.b64encode(f.read()).decode("utf-8")
+    return ""
+
+bg_image_path = os.path.join(os.path.dirname(__file__), "assets", "background.jpg")
+bg_base64 = get_base64_image(bg_image_path)
+
+# Custom CSS with Campus Background & Modern Glassmorphism
+bg_css = f"""
+    [data-testid="stAppViewContainer"] {{
+        background-image: linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.88)), url("data:image/jpeg;base64,{bg_base64}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+""" if bg_base64 else ""
+
+st.markdown(f"""
 <style>
+    {bg_css}
+    
+    [data-testid="stHeader"] {{
+        background-color: transparent !important;
+    }}
+    
+    [data-testid="stSidebar"] {{
+        background-color: rgba(15, 23, 42, 0.88) !important;
+        backdrop-filter: blur(12px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }}
+    
     /* Main container header */
-    .main-header {
-        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+    .main-header {{
+        background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(124, 58, 237, 0.9) 50%, rgba(219, 39, 119, 0.9) 100%);
+        backdrop-filter: blur(10px);
         padding: 1.6rem 1.8rem;
         border-radius: 14px;
         color: white;
         margin-bottom: 1.5rem;
-        box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
-    }
-    .main-header h1 {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }}
+    .main-header h1 {{
         color: white !important;
         font-weight: 800;
         font-size: 2.1rem;
         margin-bottom: 0.3rem;
-    }
-    .main-header p {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }}
+    .main-header p {{
         color: #e0e7ff;
         font-size: 1rem;
         margin: 0;
-    }
+    }}
     
-    /* Project Card Styling with Adaptive Contrast */
-    .project-card {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
+    /* Project Card Styling with Glassmorphism */
+    .project-card {{
+        background: rgba(30, 41, 59, 0.82) !important;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
         border-radius: 14px;
-        padding: 1.4rem;
+        padding: 1.5rem;
         margin-bottom: 1.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .project-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.2);
-        border-color: #818cf8;
-    }
+        box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.35);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }}
+    .project-card:hover {{
+        transform: translateY(-3px);
+        box-shadow: 0 16px 32px -4px rgba(0, 0, 0, 0.5);
+        border-color: #818cf8 !important;
+    }}
     
-    /* Light Theme Overrides */
-    @media (prefers-color-scheme: light) {
-        .project-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-        .project-title {
-            color: #0f172a !important;
-        }
-        .project-tagline {
-            color: #475569 !important;
-        }
-        .project-body {
-            color: #334155 !important;
-        }
-    }
-    
-    /* Dark Theme Overrides */
-    @media (prefers-color-scheme: dark) {
-        .project-card {
-            background: #1e293b;
-            border: 1px solid #334155;
-        }
-        .project-title {
-            color: #f8fafc !important;
-        }
-        .project-tagline {
-            color: #94a3b8 !important;
-        }
-        .project-body {
-            color: #cbd5e1 !important;
-        }
-    }
+    .project-title {{
+        color: #ffffff !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }}
+    .project-tagline {{
+        color: #cbd5e1 !important;
+    }}
+    .project-body {{
+        color: #e2e8f0 !important;
+    }}
     
     /* Badges */
-    .badge {
+    .badge {{
         display: inline-block;
         padding: 0.25rem 0.75rem;
         font-size: 0.78rem;
@@ -106,60 +120,63 @@ st.markdown("""
         text-transform: uppercase;
         letter-spacing: 0.05em;
         margin-right: 0.5rem;
-    }
-    .badge-beginner {
-        background-color: #dcfce7;
-        color: #15803d;
-        border: 1px solid #86efac;
-    }
-    .badge-intermediate {
-        background-color: #dbeafe;
-        color: #1d4ed8;
-        border: 1px solid #93c5fd;
-    }
-    .badge-advanced {
-        background-color: #fef3c7;
-        color: #b45309;
-        border: 1px solid #fcd34d;
-    }
-    .badge-time {
-        background-color: #f3e8ff;
-        color: #7e22ce;
-        border: 1px solid #d8b4fe;
-    }
+    }}
+    .badge-beginner {{
+        background-color: #14532d;
+        color: #86efac;
+        border: 1px solid #22c55e;
+    }}
+    .badge-intermediate {{
+        background-color: #1e3a8a;
+        color: #93c5fd;
+        border: 1px solid #3b82f6;
+    }}
+    .badge-advanced {{
+        background-color: #78350f;
+        color: #fde68a;
+        border: 1px solid #f59e0b;
+    }}
+    .badge-time {{
+        background-color: #581c87;
+        color: #e9d5ff;
+        border: 1px solid #a855f7;
+    }}
     
     /* Tech chip tags */
-    .tech-tag {
+    .tech-tag {{
         display: inline-block;
-        background-color: rgba(99, 102, 241, 0.12);
-        color: #818cf8;
+        background-color: rgba(99, 102, 241, 0.25);
+        color: #c7d2fe;
         border-radius: 6px;
         padding: 0.2rem 0.6rem;
         font-size: 0.8rem;
         font-weight: 600;
         margin: 0.2rem;
-        border: 1px solid rgba(99, 102, 241, 0.25);
-    }
+        border: 1px solid rgba(165, 180, 252, 0.35);
+    }}
     
-    .tip-box {
-        background: rgba(168, 85, 247, 0.1);
-        border-left: 4px solid #a855f7;
-        padding: 0.8rem 1rem;
+    .tip-box {{
+        background: rgba(168, 85, 247, 0.18);
+        border-left: 4px solid #c084fc;
+        padding: 0.85rem 1rem;
         border-radius: 6px;
         margin-top: 1rem;
         font-size: 0.88rem;
-        color: #d8b4fe;
-    }
+        color: #f3e8ff;
+        backdrop-filter: blur(8px);
+    }}
     
-    .scroll-hint {
-        background: linear-gradient(90deg, rgba(79, 70, 229, 0.15), rgba(124, 58, 237, 0.15));
-        border: 1px dashed #818cf8;
+    .scroll-hint {{
+        background: rgba(79, 70, 229, 0.22);
+        backdrop-filter: blur(8px);
+        border: 1px dashed #a5b4fc;
         border-radius: 10px;
         padding: 0.75rem 1rem;
         text-align: center;
         margin-bottom: 1.5rem;
+        color: #e0e7ff;
         font-weight: 600;
-    }
+    }}
 </style>
 """, unsafe_allow_html=True)
 
