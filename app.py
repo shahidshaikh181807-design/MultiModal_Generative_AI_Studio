@@ -21,55 +21,78 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for Modern Card UI & Styling
+# Custom CSS for Modern Card UI & Theme-Adaptive Styling
 st.markdown("""
 <style>
-    /* Main container styling */
+    /* Main container header */
     .main-header {
         background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
-        padding: 2.2rem 2rem;
-        border-radius: 16px;
+        padding: 1.6rem 1.8rem;
+        border-radius: 14px;
         color: white;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
     }
     .main-header h1 {
         color: white !important;
         font-weight: 800;
-        font-size: 2.3rem;
-        margin-bottom: 0.5rem;
+        font-size: 2.1rem;
+        margin-bottom: 0.3rem;
     }
     .main-header p {
         color: #e0e7ff;
-        font-size: 1.05rem;
+        font-size: 1rem;
         margin: 0;
     }
     
-    /* Project Card Styling */
+    /* Project Card Styling with Adaptive Contrast */
     .project-card {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 14px;
-        padding: 1.5rem;
-        margin-bottom: 1.8rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        padding: 1.4rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .project-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.1);
-        border-color: #cbd5e1;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.2);
+        border-color: #818cf8;
     }
     
-    /* Dark mode support */
+    /* Light Theme Overrides */
+    @media (prefers-color-scheme: light) {
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .project-title {
+            color: #0f172a !important;
+        }
+        .project-tagline {
+            color: #475569 !important;
+        }
+        .project-body {
+            color: #334155 !important;
+        }
+    }
+    
+    /* Dark Theme Overrides */
     @media (prefers-color-scheme: dark) {
         .project-card {
             background: #1e293b;
-            border-color: #334155;
-            color: #f8fafc;
+            border: 1px solid #334155;
         }
-        .project-card:hover {
-            border-color: #64748b;
+        .project-title {
+            color: #f8fafc !important;
+        }
+        .project-tagline {
+            color: #94a3b8 !important;
+        }
+        .project-body {
+            color: #cbd5e1 !important;
         }
     }
     
@@ -108,24 +131,34 @@ st.markdown("""
     /* Tech chip tags */
     .tech-tag {
         display: inline-block;
-        background-color: #f1f5f9;
-        color: #334155;
+        background-color: rgba(99, 102, 241, 0.12);
+        color: #818cf8;
         border-radius: 6px;
         padding: 0.2rem 0.6rem;
         font-size: 0.8rem;
-        font-weight: 500;
+        font-weight: 600;
         margin: 0.2rem;
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(99, 102, 241, 0.25);
     }
     
     .tip-box {
-        background: #fdf4ff;
+        background: rgba(168, 85, 247, 0.1);
         border-left: 4px solid #a855f7;
         padding: 0.8rem 1rem;
         border-radius: 6px;
         margin-top: 1rem;
         font-size: 0.88rem;
-        color: #581c87;
+        color: #d8b4fe;
+    }
+    
+    .scroll-hint {
+        background: linear-gradient(90deg, rgba(79, 70, 229, 0.15), rgba(124, 58, 237, 0.15));
+        border: 1px dashed #818cf8;
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -135,10 +168,10 @@ st.markdown("""
 <div class="main-header">
     <h1>💡 Project Idea Generator</h1>
     <p>AI-Powered Academic & Final-Year Project Advisor | Domain & Skill Tailored Recommendations</p>
-    <div style="margin-top: 0.8rem; font-size: 0.85rem; opacity: 0.9;">
+    <div style="margin-top: 0.6rem; font-size: 0.85rem; opacity: 0.95;">
         <span>🎯 Problem #49</span> &bull; 
         <span>📚 GenAI Mini Project (10-Mark Evaluation)</span> &bull; 
-        <span>⚡ Cards Layout & Scope Breakdown</span>
+        <span>⚡ 5 Cards Layout with Modules & Stack</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -211,7 +244,7 @@ with col1:
         "Blockchain & Web3 Decentralized Apps",
         "Custom (Enter your own)"
     ]
-    selected_domain = st.selectbox("Select Project Domain", domain_options, index=1)
+    selected_domain = st.selectbox("Select Project Domain", domain_options, index=6)
     
     if selected_domain == "Custom (Enter your own)":
         domain_input = st.text_input("Enter Custom Domain", placeholder="e.g., Autonomous Drones, Robotics, Agritech")
@@ -222,7 +255,7 @@ with col2:
     skill_level = st.select_slider(
         "Student Skill Level",
         options=["Beginner", "Intermediate", "Advanced"],
-        value="Intermediate"
+        value="Advanced"
     )
 
 with col3:
@@ -234,7 +267,7 @@ with col3:
             "2-3 Months (Semester Project)",
             "6 Months (Capstone / Final Year)"
         ],
-        index=0
+        index=3
     )
 
 # Optional Advanced Inputs
@@ -292,6 +325,13 @@ if st.session_state.generated_projects:
     
     st.markdown(f"### 🎯 5 Project Ideas for **{meta.get('domain', '')}** ({meta.get('skill_level', '')} &bull; {meta.get('time_limit', '')})")
     
+    # Helpful Scroll Hint
+    st.markdown("""
+    <div class="scroll-hint">
+        👇 <strong>5 Project Cards Ready!</strong> Scroll down below to review each card, expand modules, and view evaluation tips.
+    </div>
+    """, unsafe_allow_html=True)
+    
     # Export and Action Bar
     top_col1, top_col2 = st.columns([3, 1])
     with top_col2:
@@ -317,25 +357,25 @@ if st.session_state.generated_projects:
                     <div>
                         <span class="badge {diff_class}">{difficulty}</span>
                         <span class="badge badge-time">⏱️ {p.get('estimated_time', '1-2 Weeks')}</span>
-                        <h2 style="margin: 0.5rem 0 0.2rem 0; font-size: 1.45rem; font-weight: 700;">#{p.get('id', 1)} {p.get('title', 'Project Title')}</h2>
-                        <p style="font-style: italic; color: #64748b; font-size: 0.95rem; margin-bottom: 0.8rem;">"{p.get('tagline', '')}"</p>
+                        <h2 class="project-title" style="margin: 0.5rem 0 0.2rem 0; font-size: 1.45rem; font-weight: 700;">#{p.get('id', 1)} {p.get('title', 'Project Title')}</h2>
+                        <p class="project-tagline" style="font-style: italic; font-size: 0.95rem; margin-bottom: 0.8rem;">"{p.get('tagline', '')}"</p>
                     </div>
                 </div>
                 
-                <div style="margin-bottom: 0.8rem;">
+                <div class="project-body" style="margin-bottom: 0.8rem;">
                     <strong>📌 Problem Statement:</strong>
                     <p style="margin-top: 0.2rem; font-size: 0.93rem; line-height: 1.5;">{p.get('problem_statement', '')}</p>
                 </div>
                 
-                <div style="margin-bottom: 0.8rem;">
+                <div class="project-body" style="margin-bottom: 0.8rem;">
                     <strong>👥 Target Audience:</strong>
-                    <span style="font-size: 0.93rem; color: #475569;"> {p.get('target_audience', 'General Users')}</span>
+                    <span style="font-size: 0.93rem;"> {p.get('target_audience', 'General Users')}</span>
                 </div>
             </div>
             """, unsafe_allow_html=True)
             
             # Module Breakdown & Tech Details Expander
-            with st.expander(f"🔍 Detailed Modules & Tech Stack for: {p.get('title', 'Idea')}", expanded=False):
+            with st.expander(f"🔍 Click to View Modules, Tech Stack & Evaluation Tip for Idea #{p.get('id', 1)}", expanded=False):
                 mod_col1, mod_col2 = st.columns([1.3, 1])
                 
                 with mod_col1:
