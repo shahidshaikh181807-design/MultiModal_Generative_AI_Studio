@@ -22,3 +22,9 @@ ENV/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Drive Submission Bundle
+Drive_Upload_Package/
+*.zip
+Report.pdf
+
